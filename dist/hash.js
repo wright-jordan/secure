@@ -1,7 +1,7 @@
 import crypto from "crypto";
 /**
  * Hashes plain text password into a hex encoded string with salt appended.
- * @throws {@link Error} if {@link crypto.randomBytes()} or {@link crypto.scrypt()} throws.
+ * @throws `Error`
  */
 export async function hash(plainText) {
     return new Promise((resolve, reject) => {
