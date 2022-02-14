@@ -1,4 +1,4 @@
-# auth
+# secure
 
 Utility functions that utilize the node crypto module.
 
