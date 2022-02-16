@@ -11,7 +11,7 @@ export async function verify(plainText, hash) {
             return;
         }
         crypto.scrypt(plainText, salt, 64, (err, derivedKey) => {
-            if (err !== null) {
+            if (err) {
                 reject(err);
                 return;
             }

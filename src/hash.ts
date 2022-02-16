@@ -7,13 +7,13 @@ import crypto from "crypto";
 export async function hash(plainText: string): Promise<string> {
   return new Promise((resolve, reject) => {
     crypto.randomBytes(16, (err, buf) => {
-      if (err !== null) {
+      if (err) {
         reject(err);
         return;
       }
       const salt = buf.toString("hex");
       crypto.scrypt(plainText, salt, 64, (err, derivedKey) => {
-        if (err !== null) {
+        if (err) {
           reject(err);
           return;
         }
