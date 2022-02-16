@@ -2,7 +2,7 @@ import crypto from "crypto";
 
 /**
  * Compares a hash and password, returns true if they match.
- * @throws `Error`
+ * @throws {@link Error}
  */
 export async function verify(
   plainText: string,

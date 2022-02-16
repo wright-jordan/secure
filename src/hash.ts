@@ -2,7 +2,7 @@ import crypto from "crypto";
 
 /**
  * Hashes plain text password into a hex encoded string with salt appended.
- * @throws `Error`
+ * @throws {@link Error}
  */
 export async function hash(plainText: string): Promise<string> {
   return new Promise((resolve, reject) => {
