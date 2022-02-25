@@ -1,7 +1,7 @@
-import crypto from "crypto";
+import { scrypt, timingSafeEqual } from "crypto";
 /**
  * Compares a hash and password, returns true if they match.
- * @throws `Error`
+ * @throws {@link Error}
  */
 export async function verify(plainText, hash) {
     return new Promise((resolve, reject) => {
@@ -10,12 +10,12 @@ export async function verify(plainText, hash) {
             reject(new Error("hash must be formatted as 'salt:key'."));
             return;
         }
-        crypto.scrypt(plainText, salt, 64, (err, derivedKey) => {
+        scrypt(plainText, salt, 64, (err, derivedKey) => {
             if (err) {
                 reject(err);
                 return;
             }
-            resolve(crypto.timingSafeEqual(Buffer.from(key), Buffer.from(derivedKey.toString("hex"))));
+            resolve(timingSafeEqual(Buffer.from(key), Buffer.from(derivedKey.toString("hex"))));
         });
     });
 }
