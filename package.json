@@ -2,6 +2,9 @@
   "name": "secure",
   "version": "1.0.0",
   "main": "dist/index.js",
+  "scripts": {
+    "build": "rm -r dist || true && tsc"
+  },
   "type": "module",
   "devDependencies": {
     "@types/node": "^17.0.36",
